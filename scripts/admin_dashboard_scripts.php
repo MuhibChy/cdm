@@ -1,0 +1,251 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to fetch data for line chart
+    function fetchDataFromServer(callback) {
+      fetch('fetch_records.php')
+        .then(response => response.json())
+        .then(data => callback(data))
+        .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Function to create line chart
+    function createLineChart(data) {
+      var ctx = document.getElementById('customerMetricsChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: data.dates,
+          datasets: [
+            {
+              label: 'Leads Generation',
+              data: data.leadsGeneration,
+              borderColor: 'rgba(0,31,63)',
+              backgroundColor: 'rgba(0,31,63)',
+              fill: false
+            },
+            {
+              label: 'Engagement',
+              data: data.engagement,
+              borderColor: 'rgba(54, 162, 235, 1)',
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              fill: false
+            },
+            {
+              label: 'Proposal',
+              data: data.proposal,
+              borderColor: 'rgba(255, 206, 86, 1)',
+              backgroundColor: 'rgba(255, 206, 86, 0.2)',
+              fill: false
+            },
+            {
+              label: 'Order',
+              data: data.order,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              fill: false
+            },
+            {
+              label: 'Payment',
+              data: data.payment,
+              borderColor: 'rgba(153, 102, 255, 1)',
+              backgroundColor: 'rgba(153, 102, 255, 0.2)',
+              fill: false
+            },
+            {
+              label: 'Delivery',
+              data: data.delivery,
+              borderColor: 'rgba(255, 159, 64, 1)',
+              backgroundColor: 'rgba(255, 159, 64, 0.2)',
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'top' },
+            tooltip: {
+              mode: 'index',
+              intersect: false
+            }
+          },
+          scales: {
+            x: {
+              display: true,
+              title: { display: true, text: 'Date' }
+            },
+            y: {
+              display: true,
+              title: { display: true, text: 'Count' }
+            }
+          }
+        }
+      });
+    }
+
+    // Function to fetch and create pie charts
+    function createPieCharts() {
+      fetch('data_pie.php')
+        .then(response => response.json())
+        .then(data => {
+          // Gender Pie Chart
+          const genderLabels = data.genderData.map(item => item.gender);
+          const genderCounts = data.genderData.map(item => item.count);
+          const genderCtx = document.getElementById('genderPieChart').getContext('2d');
+          new Chart(genderCtx, {
+            type: 'pie',
+            data: {
+              labels: genderLabels,
+              datasets: [{
+                label: 'Gender Distribution',
+                data: genderCounts,
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                  callbacks: {
+                    label: function(context) {
+                      let label = context.label || '';
+                      if (label) label += ': ';
+                      label += context.raw;
+                      return label;
+                    }
+                  }
+                }
+              }
+            }
+          });
+
+          // Customer Type Pie Chart
+          const customerTypeLabels = data.customerTypeData.map(item => item.customer_type);
+          const customerTypeCounts = data.customerTypeData.map(item => item.count);
+          const customerTypeCtx = document.getElementById('customerTypePieChart').getContext('2d');
+          new Chart(customerTypeCtx, {
+            type: 'pie',
+            data: {
+              labels: customerTypeLabels,
+              datasets: [{
+                label: 'Customer Type Distribution',
+                data: customerTypeCounts,
+                backgroundColor: [
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                  callbacks: {
+                    label: function(context) {
+                      let label = context.label || '';
+                      if (label) label += ': ';
+                      label += context.raw;
+                      return label;
+                    }
+                  }
+                }
+              }
+            }
+          });
+        })
+        .catch(error => console.error('Error fetching pie chart data:', error));
+    }
+
+    // Function to populate sales managers dropdown
+    function populateSalesManagers() {
+      $.ajax({
+        url: 'fetch_sales_managers.php',
+        type: 'GET',
+        success: function(response) {
+          var select = document.getElementById("sales-manager");
+          response.forEach(function(manager) {
+            var optionElem = document.createElement("option");
+            optionElem.value = manager.manager_id;
+            optionElem.textContent = manager.firstname + ' ' + manager.lastname;
+            select.appendChild(optionElem);
+          });
+        },
+        error: function(error) {
+          console.error('Error fetching sales managers:', error);
+        }
+      });
+    }
+
+    // Function to filter data by selected sales manager
+    function filterByManager() {
+      var salesManagerId = document.getElementById("sales-manager").value;
+      $.ajax({
+        url: 'fetch_customer_records.php',
+        type: 'POST',
+        data: { manager_id: salesManagerId },
+        success: function(response) {
+          var statusCounts = {
+            'Leads Generation': 0,
+            'Engagement': 0,
+            'Proposal': 0,
+            'Order': 0,
+            'Payment': 0,
+            'Delivery': 0
+          };
+
+          // Count status occurrences
+          response.forEach(function(order) {
+            statusCounts[order.order_status]++;
+          });
+
+          // Display counts in info boxes
+          document.getElementById("leads-generation-count").textContent = statusCounts['Leads Generation'];
+          document.getElementById("engagement-count").textContent = statusCounts['Engagement'];
+          document.getElementById("proposal-count").textContent = statusCounts['Proposal'];
+          document.getElementById("order-count").textContent = statusCounts['Order'];
+          document.getElementById("payment-count").textContent = statusCounts['Payment'];
+          document.getElementById("delivery-count").textContent = statusCounts['Delivery'];
+        },
+        error: function(error) {
+          console.error('Error fetching customer records:', error);
+        }
+      });
+    }
+
+    // Initialize charts and populate dropdown on page load
+    fetchDataFromServer(createLineChart);
+    createPieCharts();
+    populateSalesManagers();
+  });
+</script>

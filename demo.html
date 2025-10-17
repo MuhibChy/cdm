@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo | Client Database Management System</title>
+  
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="shortcut icon" href="dist/img/xchire-logo.png" type="image/x-icon">
+  
+  <style type="text/css">
+    .gradient-custom-2 {
+      background: #fccb90;
+      background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+      background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    }
+    
+    @media (min-width: 768px) {
+      .gradient-form {
+        height: 100vh !important;
+      }
+    }
+    
+    @media (min-width: 769px) {
+      .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+      }
+    }
+    
+    .demo-notice {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .demo-features {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .feature-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .feature-list i {
+      color: #28a745;
+      margin-right: 10px;
+    }
+    
+    .btn-demo {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      margin: 10px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-demo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<section class="h-100 gradient-form" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        
+        <!-- Demo Notice -->
+        <div class="demo-notice">
+          🚀 DEMO VERSION - Client Database Management System
+          <br><small>This is a static demo for GitHub Pages hosting</small>
+        </div>
+        
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+
+                <div class="text-center">
+                  <img src="dist/img/xchire.png" style="width: 185px;" alt="logo">
+                </div>
+                <br>
+                
+                <div class="demo-features">
+                  <h5><i class="fas fa-star"></i> System Features</h5>
+                  <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Multi-role Authentication (Super Admin, Admin, User)</li>
+                    <li><i class="fas fa-check"></i> Customer Database Management</li>
+                    <li><i class="fas fa-check"></i> Order Tracking & Status Management</li>
+                    <li><i class="fas fa-check"></i> Real-time Notifications</li>
+                    <li><i class="fas fa-check"></i> Advanced Reporting & Analytics</li>
+                    <li><i class="fas fa-check"></i> Data Export (CSV, Excel, PDF)</li>
+                    <li><i class="fas fa-check"></i> Responsive Design</li>
+                  </ul>
+                </div>
+
+                <div class="text-center pt-3">
+                  <button type="button" class="btn btn-demo" onclick="showDashboard('admin')">
+                    <i class="fas fa-user-shield"></i> View Admin Dashboard
+                  </button>
+                  <button type="button" class="btn btn-demo" onclick="showDashboard('user')">
+                    <i class="fas fa-user"></i> View User Dashboard
+                  </button>
+                  <button type="button" class="btn btn-demo" onclick="showDashboard('superadmin')">
+                    <i class="fas fa-crown"></i> View Super Admin
+                  </button>
+                </div>
+                
+                <div class="text-center mt-4">
+                  <small class="text-muted">
+                    <i class="fas fa-info-circle"></i> 
+                    For full functionality, deploy to a PHP hosting service
+                  </small>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center" style="background-image: url('dist/img/client.jpg'); background-position: center; background-size: cover;">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <div class="text-center">
+                  <h4 class="mb-4">Professional Client Management</h4>
+                  <p class="small mb-0">Streamline your business operations with our comprehensive client database management system.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function showDashboard(role) {
+  Toastify({
+    text: `Opening ${role.charAt(0).toUpperCase() + role.slice(1)} Dashboard Demo...`,
+    duration: 3000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    backgroundColor: "linear-gradient(to right, #667eea, #764ba2)",
+  }).showToast();
+  
+  setTimeout(function() {
+    let dashboardFile = '';
+    switch(role) {
+      case 'admin':
+        dashboardFile = 'admin_dashboard_demo.html';
+        break;
+      case 'user':
+        dashboardFile = 'user_dashboard_demo.html';
+        break;
+      case 'superadmin':
+        dashboardFile = 'superadmin_dashboard_demo.html';
+        break;
+    }
+    window.location.href = dashboardFile;
+  }, 1500);
+}
+
+// Show welcome message
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+    Toastify({
+      text: "Welcome to CDMS Demo! Click any button to explore the system.",
+      duration: 5000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, #1d2e28, #18392b)",
+    }).showToast();
+  }, 1000);
+});
+</script>
+
+</body>
+</html>

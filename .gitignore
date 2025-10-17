@@ -1,0 +1,128 @@
+# CDMS - Client Database Management System
+# .gitignore file for proper version control
+
+# Sensitive Configuration Files
+conn.php
+config.php
+.env
+.env.local
+.env.production
+
+# Database Files
+*.sql
+database/backups/
+backup/
+*.db
+*.sqlite
+
+# Upload Directories
+uploads/
+files/
+temp/
+
+# Log Files
+*.log
+logs/
+debug_log.txt
+
+# Composer Dependencies (uncomment if using Composer)
+# vendor/
+# composer.lock
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# System Files
+*.tmp
+*.temp
+*.cache
+
+# PHP Session Files
+sessions/
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# Credentials and Keys
+Credentials.txt
+*.key
+*.pem
+*.p12
+
+# Development Files
+test/
+tests/
+dev/
+development/
+
+# Node.js (if using any frontend build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build Files
+build/
+dist/js/custom/
+dist/css/custom/
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PHP Storm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Error Logs
+error_log
+php_errors.log
+
+# Local Configuration Override
+local_config.php
+local_settings.php
+
+# PHPMailer Logs
+phpmailer.log
+
+# Custom User Files
+custom/
+local/
+
+# Documentation Build Files
+docs/_build/
+
+# Coverage Reports
+coverage/
+*.coverage
+
+# Deployment Scripts (if sensitive)
+deploy.sh
+deploy.php
+
+# Local Development Database
+local.sql
+dev.sql
+test.sql

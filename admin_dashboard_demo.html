@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CDMS | Admin Dashboard Demo</title>
+  
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="shortcut icon" href="dist/img/xchire-logo.png" type="image/x-icon">
+  
+  <style>
+    .demo-banner {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+    }
+    
+    body.demo-body {
+      padding-top: 50px;
+    }
+    
+    .info-box-demo {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+    }
+    
+    .info-box-demo .info-box-icon {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .demo-data {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed demo-body">
+
+<!-- Demo Banner -->
+<div class="demo-banner">
+  🎯 ADMIN DASHBOARD DEMO - Static Version for GitHub Pages
+</div>
+
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="demo.html" class="nav-link">Home</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="demo.html">
+          <i class="fas fa-sign-out-alt"></i> Back to Demo
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="dist/img/xchire-logo.png" alt="CDMS Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">CDMS Demo</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Demo Admin</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>Customers</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>Orders</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-bar"></i>
+              <p>Reports</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+    <!-- Content Header -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Admin Dashboard</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        
+        <!-- Info boxes -->
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Customers</span>
+                <span class="info-box-number demo-data">1,247</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-shopping-cart"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Active Orders</span>
+                <span class="info-box-number demo-data">89</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-dollar-sign"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Revenue</span>
+                <span class="info-box-number demo-data">$45,230</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-bell"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Notifications</span>
+                <span class="info-box-number demo-data">12</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Monthly Sales</h3>
+              </div>
+              <div class="card-body">
+                <canvas id="salesChart" width="400" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Order Status Distribution</h3>
+              </div>
+              <div class="card-body">
+                <canvas id="statusChart" width="400" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders Table -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Recent Orders</h3>
+              </div>
+              <div class="card-body">
+                <table id="ordersTable" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer</th>
+                      <th>Status</th>
+                      <th>Amount</th>
+                      <th>Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ORD-001</td>
+                      <td>John Doe</td>
+                      <td><span class="badge bg-success">Completed</span></td>
+                      <td>$1,250.00</td>
+                      <td>2024-10-15</td>
+                      <td>
+                        <button class="btn btn-sm btn-info">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>ORD-002</td>
+                      <td>Jane Smith</td>
+                      <td><span class="badge bg-warning">Pending</span></td>
+                      <td>$850.00</td>
+                      <td>2024-10-14</td>
+                      <td>
+                        <button class="btn btn-sm btn-info">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>ORD-003</td>
+                      <td>Mike Johnson</td>
+                      <td><span class="badge bg-info">Processing</span></td>
+                      <td>$2,100.00</td>
+                      <td>2024-10-13</td>
+                      <td>
+                        <button class="btn btn-sm btn-info">View</button>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2024 <a href="#">CDMS Demo</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0.0 (Demo)
+    </div>
+  </footer>
+</div>
+
+<!-- Scripts -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// Initialize DataTable
+$(document).ready(function() {
+    $('#ordersTable').DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "pageLength": 5
+    });
+});
+
+// Sales Chart
+const salesCtx = document.getElementById('salesChart').getContext('2d');
+const salesChart = new Chart(salesCtx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+            label: 'Sales ($)',
+            data: [12000, 19000, 15000, 25000, 22000, 30000],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+// Status Chart
+const statusCtx = document.getElementById('statusChart').getContext('2d');
+const statusChart = new Chart(statusCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Completed', 'Pending', 'Processing', 'Cancelled'],
+        datasets: [{
+            data: [45, 25, 20, 10],
+            backgroundColor: [
+                '#28a745',
+                '#ffc107',
+                '#17a2b8',
+                '#dc3545'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }
+});
+
+// Demo interactions
+$(document).on('click', '.btn', function(e) {
+    e.preventDefault();
+    alert('This is a demo version. In the full version, this would perform the actual action.');
+});
+</script>
+
+</body>
+</html>
