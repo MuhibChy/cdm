@@ -100,7 +100,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="https://via.placeholder.com/160x160/007bff/ffffff?text=Admin" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Demo Admin</a>
@@ -311,17 +311,10 @@
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/demo-enhancements.js"></script>
 
 <script>
-// Initialize DataTable
-$(document).ready(function() {
-    $('#ordersTable').DataTable({
-        "responsive": true,
-        "lengthChange": false,
-        "autoWidth": false,
-        "pageLength": 5
-    });
-});
+// Charts and DataTable initialization will be handled below
 
 // Sales Chart
 const salesCtx = document.getElementById('salesChart').getContext('2d');
@@ -374,9 +367,24 @@ const statusChart = new Chart(statusCtx, {
 });
 
 // Demo interactions
-$(document).on('click', '.btn', function(e) {
-    e.preventDefault();
-    alert('This is a demo version. In the full version, this would perform the actual action.');
+$(document).ready(function() {
+    // Initialize DataTable with error handling
+    try {
+        $('#ordersTable').DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "pageLength": 5
+        });
+    } catch(e) {
+        console.warn('DataTable initialization failed:', e);
+    }
+    
+    // Demo button interactions
+    $(document).on('click', '.btn', function(e) {
+        e.preventDefault();
+        alert('This is a demo version. In the full version, this would perform the actual action.');
+    });
 });
 </script>
 
